@@ -1,5 +1,5 @@
 import java.util.*;
-public class Insertion{
+public class Exordemo{
     public static void main(String args[]){
         Scanner sc=new Scanner(System.in);
         int n=sc.nextInt();
@@ -8,17 +8,17 @@ public class Insertion{
             arr[i]=sc.nextInt();
         }
 
+        int exor=0;
+        int sum=0;
         for(int i=0;i<n;i++){
-            int j=i;
-            while(j>0 && arr[j-1]>arr[j]){
-                int temp=arr[j-1];
-                arr[j-1]=arr[j];
-                arr[j]=temp;
-                j--;
+            if(i%2==0){
+                exor=exor^arr[i];
+            }
+            else{
+                sum=sum+arr[i];
             }
         }
-        for(int i=0;i<n;i++){
-            System.out.println(arr[i]);
-        }
+
+        System.out.println("Total : "+(sum - exor));
     }
 }
